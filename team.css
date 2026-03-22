@@ -1,0 +1,192 @@
+/* ══════════════════════════════════════════
+   team.css — team page styles
+   Import alongside home.css and pages.css
+   ══════════════════════════════════════════ */
+
+/* ── PAGE HEADER OVERRIDE ── */
+.page-header { height: 400px; }
+
+/* ── MAIN AREA OVERRIDE
+   pages.css sets padding on .page-main;
+   the team section handles its own padding
+   so we zero it out here.
+──────────────────────────────────────────── */
+.page-main { padding: 0; }
+
+/* ── TEAM SECTION WRAPPER ── */
+.team-section {
+  padding: 72px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── SECTION BLOCK ── */
+.team-block {
+  margin-bottom: 80px;
+}
+.team-block:last-child {
+  margin-bottom: 0;
+}
+
+/* ── SECTION DIVIDER ── */
+.team-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  overflow: hidden;
+}
+.team-divider::before {
+  content: '';
+  flex-shrink: 0;
+  width: 4px;
+  height: 64px;
+  background: linear-gradient(to bottom, var(--orange), rgba(244,121,32,0.2));
+}
+.team-divider-text { flex: 1; }
+.team-divider-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(32px, 4.5vw, 52px);
+  letter-spacing: 2px;
+  line-height: 0.9;
+  color: var(--white);
+}
+.team-divider-title span { color: var(--orange); }
+.team-divider-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(0,86,162,0.4), transparent);
+  align-self: center;
+}
+
+/* ── GRID ── */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ── CARD ── */
+.team-card {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid rgba(0,86,162,0.2);
+  text-decoration: none;
+  cursor: pointer;
+  will-change: transform;
+  transform: translateZ(0);
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+/* Corner accent — appears on hover */
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 32px; height: 32px;
+  border-top: 2px solid var(--orange);
+  border-left: 2px solid var(--orange);
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.team-card:hover {
+  border-color: rgba(244,121,32,0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+.team-card:hover::before { opacity: 1; }
+
+/* ── IMAGE WRAPPER ── */
+.team-card-img {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  position: relative;
+}
+/* Gradient fade at the bottom of the photo into the card background */
+.team-card-img::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60%;
+  background: linear-gradient(to top, var(--card) 0%, transparent 100%);
+  z-index: 1;
+}
+.team-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
+}
+/* filter only on hover — applying it by default forces a compositing
+   layer on every card on every scroll frame */
+.team-card:hover .team-card-img img {
+  transform: scale(1.05);
+  filter: saturate(1.1);
+}
+
+/* ── TEXT INFO ── */
+.team-card-info {
+  position: relative;
+  z-index: 3;
+  padding: 16px 20px 22px;
+  border-top: 1px solid rgba(244,121,32,0.15);
+}
+.team-card-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.team-card-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--orange);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.team-card-title::before {
+  content: '';
+  display: inline-block;
+  width: 12px; height: 1px;
+  background: var(--orange);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .team-block { margin-bottom: 64px; }
+  .team-section { padding: 64px 28px; }
+  .team-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .team-block { margin-bottom: 52px; }
+  .team-divider { gap: 16px; margin-bottom: 32px; }
+  .team-divider-rule { display: none; }
+  .team-section { padding: 48px 20px; }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .team-card-name { font-size: 1.15rem; }
+  .team-card-info { padding: 12px 14px 16px; }
+}
+
+@media (max-width: 400px) {
+  .team-grid { grid-template-columns: 1fr; }
+}

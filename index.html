@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTA Racing — Formula SAE</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="nav-logo">
+    <a href="index.html">
+      <img src="images/utar_logo.png" alt="UTA Racing" onerror="this.style.display='none';document.getElementById('nlfb').style.display='block'">
+      <span id="nlfb" class="nav-logo-fallback" style="display:none;">UTA <span>Racing</span></span>
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="team.html">Team</a>
+    <a href="history.html">History</a>
+    <a href="sponsors.html">Sponsors</a>
+    <a href="news.html">News</a>
+    <a href="socials.html">Socials</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="team.html">Team</a>
+  <a href="history.html">History</a>
+  <a href="sponsors.html">Sponsors</a>
+  <a href="news.html">News</a>
+  <a href="socials.html">Socials</a>
+</div>
+
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-ph">
+    <div class="hero-stripe"></div>
+
+    <!-- SLIDESHOW — add/remove <img> tags to change slides -->
+    <div class="hero-slideshow">
+      <img class="hero-slide active" src="images/car_image.jpg"     alt="UTA Racing Car">
+      <img class="hero-slide"        src="images/team_1.jpeg"       alt="UTA Team">
+      <img class="hero-slide"        src="images/working_image.jpg" alt="Building the car">
+      <img class="hero-slide"        src="images/trophy_image.jpg"  alt="Competition">
+    </div>
+    <div class="hero-slideshow-overlay"></div>
+    <div class="hero-overlay-btm"></div>
+
+    <div class="scanline"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag reveal">University of Texas at Arlington — Formula SAE</div>
+      <h1 class="hero-title reveal d1">BUILT<br>BY<br><span class="acc">MAVERICKS.</span></h1>
+      <p class="hero-sub reveal d2">Designing, engineering, and racing formula-style vehicles at the highest level of collegiate motorsport.</p>
+      <div class="hero-btns reveal d3">
+        <a href="team.html" class="btn-o">Meet the Team</a>
+        <a href="sponsors.html" class="btn-ghost">Become a Sponsor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CHAMPIONSHIP TICKER ── -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>1983 Austin<em> ◆ </em>1985 Arlington<em> ◆ </em>1986 Michigan<em> ◆ </em>1990 Arlington<em> ◆ </em>1995 Pontiac<em> ◆ </em>1996 Detroit<em> ◆ </em>1998 England<em> ◆ </em>2000 Australia<em> ◆ </em>2004 Japan<em> ◆ </em>2013 Lincoln<em> ◆ </em>2015 Lincoln<em> ◆ </em>1983 Austin<em> ◆ </em>1985 Arlington<em> ◆ </em>1986 Michigan<em> ◆ </em>1990 Arlington<em> ◆ </em>1995 Pontiac<em> ◆ </em>1996 Detroit<em> ◆ </em>1998 England<em> ◆ </em>2000 Australia<em> ◆ </em>2004 Japan<em> ◆ </em>2013 Lincoln<em> ◆ </em>2015 Lincoln<em> ◆ </em></span>
+  </div>
+</div>
+
+
+<!-- ── STATS ── -->
+<div class="stats">
+  <div class="sc reveal d1">
+    <div class="sn">11</div>
+    <div class="sl">Championship Wins</div>
+  </div>
+  <div class="sc reveal d2">
+    <div class="sn">80<em>+</em></div>
+    <div class="sl">Active Members</div>
+  </div>
+  <div class="sc reveal d3">
+    <div class="sn">40<em>+</em></div>
+    <div class="sl">Years of Racing</div>
+  </div>
+  <div class="sc reveal d4">
+    <div class="sn">3</div>
+    <div class="sl">International Titles</div>
+  </div>
+</div>
+
+
+<!-- ── PHOTO GRID ── -->
+<div class="photo-grid">
+
+  <!-- Large left cell — spans 2 rows -->
+  <div class="pc s2 reveal-l">
+    <div class="pc-ph pc-ph-1" style="height:100%;">
+      <img src="images/photo_car.jpg" alt="The Car" onerror="this.style.display='none'">
+      <div class="pc-hover-overlay"></div>
+      <div class="pc-label-txt">The Car</div>
+    </div>
+  </div>
+
+  <div class="pc reveal d1">
+    <div class="pc-ph pc-ph-2" style="height:100%;">
+      <img src="images/photo_shop.jpg" alt="The Shop" onerror="this.style.display='none'">
+      <div class="pc-hover-overlay"></div>
+      <div class="pc-label-txt">The Shop</div>
+    </div>
+  </div>
+
+  <div class="pc reveal d2">
+    <div class="pc-ph pc-ph-3" style="height:100%;">
+      <img src="images/photo_team.jpg" alt="The Team" onerror="this.style.display='none'">
+      <div class="pc-hover-overlay"></div>
+      <div class="pc-label-txt">The Team</div>
+    </div>
+  </div>
+
+  <div class="pc reveal d2">
+    <div class="pc-ph pc-ph-4" style="height:100%;">
+      <img src="images/photo_build.jpg" alt="The Build" onerror="this.style.display='none'">
+      <div class="pc-hover-overlay"></div>
+      <div class="pc-label-txt">The Build</div>
+    </div>
+  </div>
+
+  <div class="pc reveal d3">
+    <div class="pc-ph pc-ph-5" style="height:100%;">
+      <img src="images/photo_race.jpg" alt="Race Day" onerror="this.style.display='none'">
+      <div class="pc-hover-overlay"></div>
+      <div class="pc-label-txt">Race Day</div>
+    </div>
+  </div>
+
+</div><!-- /.photo-grid -->
+
+<div class="acc-line"></div>
+
+
+<!-- ── CAR / 3D SECTION ── -->
+<section class="car-section">
+
+  <div class="reveal-l">
+    <div class="sec-tag">The Car</div>
+    <div class="sec-title">F26<br><span>Formula</span><br>Car</div>
+    <p class="sec-body">Engineered from scratch by students across every discipline — aerodynamics, suspension, powertrain, electronics, and composites — our 2026 machine is the most refined car we've ever built.</p>
+    <div class="specs">
+      <!-- Update these values once F26 specs are confirmed -->
+      <div class="spec"><div class="spec-k">Engine</div><div class="spec-v">600<em>cc</em></div></div>
+      <div class="spec"><div class="spec-k">Weight</div><div class="spec-v">TBD<em>lbs</em></div></div>
+      <div class="spec"><div class="spec-k">0–60</div><div class="spec-v">TBD<em>s</em></div></div>
+      <div class="spec"><div class="spec-k">Top Speed</div><div class="spec-v">TBD<em>mph</em></div></div>
+    </div>
+  </div>
+
+  <div class="reveal-r">
+    <div class="car-ph" style="padding:0; overflow:hidden;">
+      <div class="car-corner tl"></div><div class="car-corner tr"></div>
+      <div class="car-corner bl"></div><div class="car-corner br"></div>
+      <canvas id="car-canvas" style="width:100%; height:100%; display:block;"></canvas>
+      <div id="car-loading" style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:2;">
+        <div class="car-ring">
+          <span class="car-ring-icon" style="font-size:44px; opacity:0.25;">🏎</span>
+        </div>
+        <div class="car-ph-label" id="car-load-label">Loading 3D Model...</div>
+        <div class="car-ph-sub" id="car-load-sub">Run via a local server — see instructions</div>
+      </div>
+      <div class="car-rotate-hint">Drag to rotate · Scroll to zoom</div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ── FAQ ── -->
+<section class="faq-section">
+  <div class="faq-layout">
+
+    <div class="reveal-l">
+      <div class="sec-tag">Questions</div>
+      <div class="sec-title" style="font-size:clamp(40px,5vw,60px);">Frequently<br>Asked</div>
+      <p class="faq-desc">Everything you need to know about joining the team, sponsoring us, or following our season.</p>
+    </div>
+
+    <div class="reveal-r">
+      <div class="faq-item open" onclick="toggleFaq(this)">
+        <div class="faq-hdr"><div class="faq-q">How do I join the team?</div><div class="faq-ico">+</div></div>
+        <div class="faq-a">Recruitment opens each fall semester. We welcome students from all disciplines — engineering, business, and design. No prior motorsport experience is needed, just a passion for building things and working in a team environment.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-hdr"><div class="faq-q">What competitions do you attend?</div><div class="faq-ico">+</div></div>
+        <div class="faq-a">We primarily compete at Formula SAE Lincoln, the largest FSAE event in the US. We also pursue international competitions including Formula Student events in England, Australia, and Japan — where we've won championships in all three.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-hdr"><div class="faq-q">How can a company sponsor us?</div><div class="faq-ico">+</div></div>
+        <div class="faq-a">We offer tiered sponsorship packages with branding on the car and team kit, event presence, recruiting access to 80+ engineering students, and featured placement on this site. Visit the Sponsors page or reach out directly for our prospectus.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-hdr"><div class="faq-q">Combustion or electric?</div><div class="faq-ico">+</div></div>
+        <div class="faq-a">Both. We run the F26 combustion car and are actively developing the E25 and E27 electric platforms for competition in the FSAE Electric class. 2026 is our first season fielding both programs simultaneously.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-hdr"><div class="faq-q">What subteams can I join?</div><div class="faq-ico">+</div></div>
+        <div class="faq-a">Aerodynamics, chassis, suspension, drivetrain, engine, battery pack, electronics, data acquisition, composites, ergonomics, cost, and business — each with dedicated leads and real hands-on engineering ownership from day one.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="fg">
+    <div>
+      <div>
+        <img src="images/utar_logo.png" alt="UTA Racing" height="48" onerror="this.style.display='none';document.getElementById('flfb').style.display='block'">
+        <span id="flfb" class="fl-logo-fb" style="display:none;">UTA <span>Racing</span></span>
+      </div>
+      <p class="fl-tag">University of Texas<br>at Arlington — Formula SAE</p>
+    </div>
+    <div>
+      <div class="fc-title">Navigate</div>
+      <div class="fc-links">
+        <a href="team.html">Team</a>
+        <a href="history.html">History</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="news.html">News</a>
+        <a href="socials.html">Socials</a>
+      </div>
+    </div>
+  </div>
+  <div class="fb">
+    <div class="fb-copy">© 2026 UTA Racing — University of Texas at Arlington</div>
+    <div class="fb-socials">
+      <a href="https://www.linkedin.com/company/utaracing/" target="_blank" rel="noopener" class="soc"><span>LI</span></a>
+      <a href="https://www.instagram.com/utaracing/" target="_blank" rel="noopener" class="soc"><span>IG</span></a>
+      <a href="https://www.facebook.com/UTArlingtonRacing/" target="_blank" rel="noopener" class="soc"><span>FB</span></a>
+      <a href="https://www.youtube.com/@UTAFSAE" target="_blank" rel="noopener" class="soc"><span>YT</span></a>
+      <a href="https://x.com/UTARacing" target="_blank" rel="noopener" class="soc"><span>X</span></a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ── SCRIPTS ── -->
+<script>
+  /* Scroll reveals */
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => revealObs.observe(el));
+
+  /* FAQ accordion */
+  function toggleFaq(item) {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  /* Hamburger */
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+
+  /* Hero slideshow */
+  (function () {
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4500);
+  })();
+</script>
+
+<!--
+  ══════════════════════════════════════════════════════
+  THREE.JS 3D VIEWER
+  The GLB will NOT load if you open home.html by double-clicking.
+  You MUST use a local server:
+    VS Code  → Live Server extension → right-click → Open with Live Server
+    Python   → python -m http.server 8000  → open http://localhost:8000
+    Node     → npx serve .
+  GLB path: models/F23.glb
+  ══════════════════════════════════════════════════════
+-->
+<script type="module">
+  import * as THREE        from 'https://esm.sh/three@0.158.0';
+  import { GLTFLoader }    from 'https://esm.sh/three@0.158.0/examples/jsm/loaders/GLTFLoader.js';
+  import { OrbitControls } from 'https://esm.sh/three@0.158.0/examples/jsm/controls/OrbitControls.js';
+
+  const canvas  = document.getElementById('car-canvas');
+  const loading = document.getElementById('car-loading');
+  const label   = document.getElementById('car-load-label');
+  const sub     = document.getElementById('car-load-sub');
+  const carPh   = canvas.closest('.car-ph');
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'low-power' });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.shadowMap.enabled = false;
+  canvas.style.pointerEvents = 'none';
+
+  const scene  = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+  camera.position.set(3, 1.5, 4);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+  const key = new THREE.DirectionalLight(0xffffff, 1.2);
+  key.position.set(5, 10, 5);
+  scene.add(key);
+  const fill = new THREE.DirectionalLight(0x1a6fbe, 0.4);
+  fill.position.set(-5, 2, -5);
+  scene.add(fill);
+
+  const controls = new OrbitControls(camera, carPh);
+  controls.enableDamping   = true;
+  controls.dampingFactor   = 0.07;
+  controls.autoRotate      = true;
+  controls.autoRotateSpeed = 1.0;
+  controls.enablePan       = false;
+  controls.minDistance     = 1.5;
+  controls.maxDistance     = 12;
+  controls.maxPolarAngle   = Math.PI / 1.7;
+  carPh.addEventListener('pointerdown', () => { controls.autoRotate = false; });
+
+  function resize() {
+    const w = carPh.clientWidth, h = carPh.clientHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  let rafId = null;
+  function startLoop() {
+    if (rafId) return;
+    (function loop() {
+      rafId = requestAnimationFrame(loop);
+      controls.update();
+      renderer.render(scene, camera);
+    })();
+  }
+  function stopLoop() {
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  }
+  new IntersectionObserver(entries => {
+    entries[0].isIntersecting ? startLoop() : stopLoop();
+  }, { threshold: 0.1 }).observe(carPh);
+
+  new GLTFLoader().load(
+    'models/F23.glb',
+    (gltf) => {
+      const model  = gltf.scene;
+      const box    = new THREE.Box3().setFromObject(model);
+      const center = box.getCenter(new THREE.Vector3());
+      const size   = box.getSize(new THREE.Vector3());
+      model.position.sub(center);
+      model.scale.setScalar(3 / Math.max(size.x, size.y, size.z));
+      scene.add(model);
+      controls.target.set(0, 0, 0);
+      controls.update();
+      loading.style.display = 'none';
+    },
+    (xhr) => {
+      if (xhr.total) {
+        label.textContent = `Loading... ${Math.round(xhr.loaded / xhr.total * 100)}%`;
+        sub.textContent   = '';
+      }
+    },
+    (err) => {
+      console.error('GLB load failed:', err);
+      label.textContent = 'Could not load 3D model';
+      sub.textContent   = window.location.protocol === 'file:'
+        ? '⚠ Open via a local server, not by double-clicking the file'
+        : 'Check that models/F23.glb exists and the path is correct';
+    }
+  );
+</script>
+
+</body>
+</html>

@@ -1,0 +1,514 @@
+/* ══════════════════════════════════════════
+   history.css — history page styles
+   Import alongside home.css and pages.css
+   ══════════════════════════════════════════ */
+
+/* ── PAGE HEADER OVERRIDES
+   pages.css provides the base .page-header, .page-header-bg,
+   .page-header-stripe, and .page-header-eyebrow.
+   These rules override just what's different for this page.
+──────────────────────────────────────────── */
+.page-header {
+  height: 420px;
+}
+.page-header-bg {
+  background: linear-gradient(135deg, #020c15 0%, #0a1e35 50%, #020c15 100%);
+}
+/* Wider diagonal grid instead of pages.css diagonal stripe */
+.page-header-bg::before {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 60px,
+    rgba(0,86,162,0.04) 60px,
+    rgba(0,86,162,0.04) 61px
+  );
+}
+/* Ghost year watermark */
+.page-header-bg::after {
+  content: '1982';
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(180px, 28vw, 340px);
+  color: rgba(0,86,162,0.05);
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  letter-spacing: -8px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.page-header-content {
+  padding: 0 64px 56px;
+}
+
+@media (max-width: 768px) {
+  .page-header { height: 340px; }
+  .page-header-content { padding: 0 28px 40px; }
+}
+
+
+/* ── STATS BAND ── */
+.stats-band {
+  background: linear-gradient(90deg, rgba(0,86,162,0.12), rgba(0,86,162,0.06));
+  border-top: 1px solid rgba(0,86,162,0.25);
+  border-bottom: 1px solid rgba(0,86,162,0.25);
+}
+.stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.stat-item {
+  padding: 36px 28px;
+  text-align: center;
+  border-right: 1px solid rgba(0,86,162,0.2);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(42px, 6vw, 72px);
+  letter-spacing: 2px;
+  color: var(--orange);
+  line-height: 1;
+}
+.stat-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 6px;
+}
+@media (max-width: 640px) {
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(3) { border-right: 1px solid rgba(0,86,162,0.2); }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) { border-top: 1px solid rgba(0,86,162,0.2); }
+}
+
+
+/* ── HISTORY MAIN WRAPPER ── */
+.history-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px 120px;
+}
+@media (max-width: 640px) {
+  .history-main { padding: 48px 24px 80px; }
+}
+
+
+/* ── ERA SECTION LABELS ── */
+.era-label {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 60px;
+  margin-top: 80px;
+}
+.era-label:first-child { margin-top: 0; }
+
+.era-label-bar {
+  width: 4px;
+  height: 56px;
+  flex-shrink: 0;
+  background: linear-gradient(to bottom, var(--orange), rgba(244,121,32,0.2));
+}
+.era-label-text { flex: 1; }
+.era-label-sub {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+.era-label-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(30px, 4vw, 48px);
+  letter-spacing: 2px;
+  line-height: 1;
+  color: var(--white);
+}
+.era-label-title span { color: var(--orange); }
+.era-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(0,86,162,0.35), transparent);
+}
+.era-ghost {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(64px, 10vw, 120px);
+  color: rgba(0,86,162,0.05);
+  letter-spacing: -3px;
+  line-height: 1;
+  flex-shrink: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 48px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--orange), rgba(0,86,162,0.3) 60%, transparent);
+}
+@media (max-width: 640px) {
+  .timeline { padding-left: 32px; }
+}
+
+
+/* ── TIMELINE EVENT CARDS ── */
+.tl-event {
+  position: relative;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeSlide 0.55s ease forwards;
+}
+.tl-event:nth-child(1) { animation-delay: .05s; }
+.tl-event:nth-child(2) { animation-delay: .12s; }
+.tl-event:nth-child(3) { animation-delay: .19s; }
+.tl-event:nth-child(4) { animation-delay: .26s; }
+.tl-event:nth-child(5) { animation-delay: .33s; }
+.tl-event:nth-child(6) { animation-delay: .40s; }
+.tl-event:nth-child(7) { animation-delay: .47s; }
+.tl-event:nth-child(8) { animation-delay: .54s; }
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Dot on the timeline line */
+.tl-event::before {
+  content: '';
+  position: absolute;
+  left: -54px; top: 22px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--dark);
+  border: 2px solid var(--orange);
+  box-shadow: 0 0 10px rgba(244,121,32,0.4);
+  transition: background 0.2s;
+}
+.tl-event:hover::before { background: var(--orange); }
+
+/* Championship dot — larger and filled */
+.tl-event.champ::before {
+  width: 16px; height: 16px;
+  left: -56px; top: 20px;
+  background: var(--orange);
+  border-color: #fff;
+  box-shadow: 0 0 16px rgba(244,121,32,0.7);
+}
+
+.tl-inner {
+  background: var(--card);
+  border: 1px solid rgba(0,86,162,0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  will-change: transform;
+}
+.tl-event:hover .tl-inner {
+  border-color: rgba(244,121,32,0.4);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  transform: translateX(6px);
+}
+/* Orange top stripe on championship events */
+.tl-event.champ .tl-inner::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), rgba(244,121,32,0.2));
+}
+
+/* Card layout */
+.tl-body { display: grid; grid-template-columns: 1fr; }
+.tl-body.has-photo { grid-template-columns: 1fr 280px; }
+@media (max-width: 900px) {
+  .tl-body.has-photo { grid-template-columns: 1fr; }
+}
+
+.tl-content { padding: 28px 32px; }
+.tl-year-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+.tl-year {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--orange);
+  line-height: 1;
+}
+
+/* Badges */
+.tl-badge {
+  padding: 3px 10px;
+  background: rgba(244,121,32,0.15);
+  border: 1px solid rgba(244,121,32,0.4);
+  border-radius: 2px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.tl-badge--intl {
+  background: rgba(0,86,162,0.2);
+  border-color: rgba(0,86,162,0.5);
+  color: #5aacff;
+}
+.tl-badge--first {
+  background: rgba(255,215,0,0.1);
+  border-color: rgba(255,215,0,0.4);
+  color: #ffd700;
+}
+.tl-badge--progress {
+  background: rgba(0,86,162,0.18);
+  border-color: rgba(0,86,162,0.5);
+  color: #5aacff;
+}
+
+.tl-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+.tl-desc {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 500;
+  max-width: 640px;
+}
+
+/* Car tags */
+.tl-car-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 4px 12px;
+  border: 1px solid rgba(0,86,162,0.3);
+  background: rgba(0,86,162,0.08);
+  border-radius: 2px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(245,245,242,0.4);
+}
+.tl-car-tag::before {
+  content: '';
+  display: block;
+  width: 8px; height: 1px;
+  background: var(--orange);
+  opacity: 0.5;
+}
+.tl-car-tag--spaced { margin-left: 8px; }
+
+
+/* ── TIMELINE PHOTO SLOT ── */
+.tl-photo {
+  border-left: 1px solid rgba(0,86,162,0.2);
+  overflow: hidden;
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tl-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
+}
+.tl-event:hover .tl-photo img { transform: scale(1.04); }
+.tl-photo-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(0,86,162,0.08), rgba(0,86,162,0.03));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+}
+@media (max-width: 900px) {
+  .tl-photo {
+    border-left: none;
+    border-top: 1px solid rgba(0,86,162,0.2);
+    min-height: 180px;
+  }
+}
+.photo-icon {
+  width: 48px; height: 48px;
+  border: 1px dashed rgba(0,86,162,0.3);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photo-icon svg { opacity: 0.2; }
+.photo-caption {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245,245,242,0.18);
+  text-align: center;
+}
+
+
+/* ── FOUNDING / ORIGIN STORY SECTION ── */
+.founding-section {
+  margin-bottom: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .founding-section { grid-template-columns: 1fr; }
+}
+.founding-eyebrow {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  opacity: 0.75;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.founding-eyebrow::before {
+  content: '';
+  display: block;
+  width: 16px; height: 1px;
+  background: var(--orange);
+}
+.founding-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 4vw, 46px);
+  letter-spacing: 2px;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+.founding-headline span { color: var(--orange); }
+.founding-body {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.founding-photo-wrap { position: relative; }
+.founding-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, rgba(0,86,162,0.12), rgba(0,86,162,0.04));
+  border: 1px solid rgba(0,86,162,0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.founding-photo img { width: 100%; height: 100%; object-fit: cover; }
+.founding-photo-label {
+  position: absolute;
+  bottom: -12px; right: 24px;
+  background: var(--orange);
+  color: #000;
+  padding: 6px 16px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+
+/* ── CHAMPIONSHIP GRID ── */
+.champ-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 64px;
+}
+@media (max-width: 640px) {
+  .champ-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.champ-card {
+  background: var(--card);
+  border: 1px solid rgba(244,121,32,0.2);
+  border-radius: 4px;
+  padding: 20px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.champ-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--orange), transparent);
+}
+.champ-card:hover {
+  border-color: rgba(244,121,32,0.5);
+  transform: translateY(-3px);
+}
+.champ-card--intl { border-color: rgba(90,172,255,0.3); }
+.champ-year-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: var(--orange);
+  line-height: 1;
+}
+.champ-year-big--intl { color: #5aacff; }
+.champ-event {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.champ-trophy {
+  position: absolute;
+  right: 14px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  opacity: 0.15;
+}

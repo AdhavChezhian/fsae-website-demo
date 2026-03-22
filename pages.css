@@ -1,0 +1,141 @@
+/* ══════════════════════════════════════════
+   pages.css — shared styles for all inner pages
+   Import alongside home.css on every inner page
+   ══════════════════════════════════════════ */
+
+/* ── ACTIVE NAV LINK ── */
+.nav-links a.active {
+  color: var(--orange);
+  border-bottom: 1px solid var(--orange);
+  padding-bottom: 2px;
+}
+
+/* ─────────────────────────────────────────
+   PAGE HEADER — base used by all inner pages
+   Individual page CSS files can override
+   height, bg gradient, and ::after watermark
+───────────────────────────────────────── */
+.page-header {
+  position: relative;
+  overflow: hidden;
+  height: 380px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.page-header-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    #010a14 0%,
+    #00204d 40%,
+    #0056A2 75%,
+    #1a6fbe 100%
+  );
+  z-index: 0;
+}
+
+/* Diagonal stripe texture */
+.page-header-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -52deg,
+    transparent,
+    transparent 22px,
+    rgba(244,121,32,0.05) 22px,
+    rgba(244,121,32,0.05) 24px
+  );
+}
+
+/* Bottom fade into page background */
+.page-header-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 160px;
+  background: linear-gradient(to top, var(--black), transparent);
+}
+
+/* Left orange accent stripe */
+.page-header-stripe {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 5px;
+  background: linear-gradient(to bottom, var(--orange), rgba(244,121,32,0.1));
+  z-index: 1;
+}
+
+.page-header-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 48px 52px;
+  width: 100%;
+}
+
+/* Eyebrow label — small text above the title */
+.page-header-eyebrow {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  opacity: 0.8;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.page-header-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--orange);
+}
+
+.page-header-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(56px, 8vw, 100px);
+  line-height: 0.9;
+  color: #fff;
+  letter-spacing: 2px;
+}
+.page-header-title span { color: var(--orange); }
+
+.page-header-sub {
+  font-size: 15px;
+  color: rgba(245,245,242,0.5);
+  max-width: 520px;
+  margin-top: 16px;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ── PAGE MAIN CONTENT AREA ── */
+.page-main {
+  min-height: 60vh;
+  padding: 72px 48px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .page-header-content { padding: 0 28px 48px; }
+  .page-main { padding: 64px 28px; }
+}
+@media (max-width: 767px) {
+  .page-header { height: 300px; }
+  .page-header-content { padding: 0 20px 40px; }
+  .page-main { padding: 48px 20px; }
+}
+
+/* ── MOBILE MENU — fixed so it stays visible while scrolling ── */
+.nav-mobile-menu {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}

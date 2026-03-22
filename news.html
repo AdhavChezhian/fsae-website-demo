@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTA Racing — News</title>
+  <!-- Fonts load via home.css @import — no extra link needed -->
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="news.css">
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="nav-logo">
+    <a href="index.html">
+      <img src="images/utar_logo.png" alt="UTA Racing" onerror="this.style.display='none';document.getElementById('nlfb').style.display='block'">
+      <span id="nlfb" class="nav-logo-fallback" style="display:none;">UTA <span>Racing</span></span>
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="team.html">Team</a>
+    <a href="history.html">History</a>
+    <a href="sponsors.html">Sponsors</a>
+    <a href="news.html" class="active">News</a>
+    <a href="socials.html">Socials</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="team.html">Team</a>
+  <a href="history.html">History</a>
+  <a href="sponsors.html">Sponsors</a>
+  <a href="news.html">News</a>
+  <a href="socials.html">Socials</a>
+</div>
+
+
+<!-- ── PAGE HEADER ── -->
+<header class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-stripe"></div>
+  <div class="page-header-content">
+    <div class="page-header-eyebrow">Latest Updates</div>
+    <h1 class="page-header-title">Team <span>News</span></h1>
+    <p class="page-header-sub">Race reports, build updates, and announcements from the shop.</p>
+  </div>
+</header>
+
+
+<!-- ── MAIN ── -->
+<main class="news-main">
+
+  <!--
+  ════════════════════════════════════════════
+  HOW TO ADD AN ARTICLE
+  ════════════════════════════════════════════
+  1. Copy the entire <div class="article-item"> block below
+  2. Paste it ABOVE the existing articles (newest first at the top)
+  3. Update:
+       art-date-day  → day number (e.g. "14")
+       art-date-mon  → 3-letter month (e.g. "Mar")
+       art-year      → year (e.g. "2026")
+       art-category  → pick a class:
+                        art-category--competition  (orange)
+                        art-category--engineering  (blue)
+                        art-category--team         (green)
+                        art-category--announcement (gold)
+       art-headline  → the article title
+       art-preview   → 1–2 sentence summary shown in the collapsed row
+       article-text  → the full body (as many <p> tags as needed)
+       article-byline→ "By Name · Month DD, YYYY"
+  4. Photo (optional):
+       — Put the image in the images/ folder
+       — Update the <img src="images/your-photo.jpg">
+       — If no photo needed, delete the entire .article-photo div
+  ════════════════════════════════════════════
+  -->
+
+  <div class="article-list">
+
+    <!-- ─────────────────────────────────────
+         PASTE NEW ARTICLES ABOVE THIS COMMENT
+         ↓ EXAMPLE ARTICLE — replace with real content ↓
+    ───────────────────────────────────────── -->
+    <div class="article-item">
+      <button class="article-trigger" aria-expanded="false">
+        <div class="article-trigger-inner">
+          <div class="art-date-col">
+            <div class="art-date-day">01</div>
+            <div class="art-date-mon">Jan</div>
+          </div>
+          <div class="art-summary">
+            <div class="art-meta-row">
+              <span class="art-category art-category--announcement">Announcement</span>
+              <span class="art-year">2026</span>
+            </div>
+            <div class="art-headline">Your Article Headline Goes Here</div>
+            <div class="art-preview">A one or two sentence summary of the article that shows in the collapsed row. Keep it short — the full story is inside.</div>
+          </div>
+          <div class="art-chevron-col">
+            <div class="art-chevron">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </button>
+
+      <div class="article-body">
+        <div class="article-body-inner">
+          <div class="article-body-content">
+
+            <!-- Delete this .article-photo div if you have no photo -->
+            <div class="article-photo">
+              <img src="images/article-photo.jpg" alt="Article photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="article-photo-placeholder" style="display:none;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <span>Add photo here</span>
+              </div>
+            </div>
+
+            <div class="article-text">
+              <p>Write your full article here. Add as many paragraphs as needed — each one in its own &lt;p&gt; tag.</p>
+              <p>This is the second paragraph. Keep adding &lt;p&gt; tags for each paragraph of your story.</p>
+            </div>
+
+            <div class="article-byline">By Author Name · January 1, 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ↑ END OF EXAMPLE ARTICLE ↑ -->
+
+  </div><!-- /.article-list -->
+
+</main>
+
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="fg">
+    <div>
+      <div>
+        <img src="images/utar_logo.png" alt="UTA Racing" height="48" onerror="this.style.display='none';document.getElementById('flfb').style.display='block'">
+        <span id="flfb" class="fl-logo-fb" style="display:none;">UTA <span>Racing</span></span>
+      </div>
+      <p class="fl-tag">University of Texas<br>at Arlington — Formula SAE</p>
+    </div>
+    <div>
+      <div class="fc-title">Navigate</div>
+      <div class="fc-links">
+        <a href="team.html">Team</a>
+        <a href="history.html">History</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="news.html">News</a>
+        <a href="socials.html">Socials</a>
+      </div>
+    </div>
+  </div>
+  <div class="fb">
+    <div class="fb-copy">© 2026 UTA Racing — University of Texas at Arlington</div>
+    <div class="fb-socials">
+      <a href="https://www.linkedin.com/company/utaracing/" target="_blank" rel="noopener" class="soc"><span>LI</span></a>
+      <a href="https://www.instagram.com/utaracing/" target="_blank" rel="noopener" class="soc"><span>IG</span></a>
+      <a href="https://www.facebook.com/UTArlingtonRacing/" target="_blank" rel="noopener" class="soc"><span>FB</span></a>
+      <a href="https://www.youtube.com/@UTAFSAE" target="_blank" rel="noopener" class="soc"><span>YT</span></a>
+      <a href="https://x.com/UTARacing" target="_blank" rel="noopener" class="soc"><span>X</span></a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // Mobile nav
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+
+  // Accordion — one article open at a time
+  document.querySelectorAll('.article-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.article-item');
+      const isOpen = item.classList.contains('open');
+
+      // Close any other open article
+      document.querySelectorAll('.article-item.open').forEach(el => {
+        if (el !== item) {
+          el.classList.remove('open');
+          el.querySelector('.article-trigger').setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      item.classList.toggle('open', !isOpen);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+
+      // Scroll newly opened article into view
+      if (!isOpen) {
+        setTimeout(() => {
+          const top = item.getBoundingClientRect().top + window.scrollY - 90;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }, 50);
+      }
+    });
+  });
+</script>
+</body>
+</html>

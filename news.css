@@ -1,0 +1,314 @@
+/* ══════════════════════════════════════════
+   news.css — news page styles
+   Import alongside home.css and pages.css
+   ══════════════════════════════════════════ */
+
+/* ── PAGE HEADER OVERRIDES ── */
+.page-header {
+  height: 380px;
+}
+.page-header-bg {
+  background: linear-gradient(135deg, #020c15 0%, #071828 45%, #0a1e35 100%);
+}
+/* Tighter diagonal stripe for this page */
+.page-header-bg::before {
+  background: repeating-linear-gradient(
+    -52deg,
+    transparent,
+    transparent 22px,
+    rgba(244,121,32,0.04) 22px,
+    rgba(244,121,32,0.04) 23px
+  );
+}
+/* Ghost "NEWS" watermark */
+.page-header-bg::after {
+  content: 'NEWS';
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(140px, 22vw, 280px);
+  color: rgba(0,86,162,0.045);
+  position: absolute;
+  right: -10px;
+  bottom: -24px;
+  letter-spacing: -4px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.page-header-content {
+  padding: 0 64px 56px;
+}
+
+@media (max-width: 768px) {
+  .page-header { height: 320px; }
+  .page-header-content { padding: 0 24px 36px; }
+}
+
+
+/* ── MAIN WRAPPER ── */
+.news-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 48px 120px;
+}
+@media (max-width: 640px) {
+  .news-main { padding: 40px 20px 80px; }
+}
+
+
+/* ── ARTICLE COUNT (optional — add <div class="news-count"> above the list) ── */
+.news-count {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.news-count::before {
+  content: '';
+  display: block;
+  width: 28px; height: 1px;
+  background: var(--orange);
+  opacity: 0.5;
+}
+
+
+/* ── ARTICLE LIST ── */
+.article-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,86,162,0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.article-item {
+  border-bottom: 1px solid rgba(0,86,162,0.15);
+  position: relative;
+}
+.article-item:last-child { border-bottom: none; }
+
+
+/* ── ACCORDION TRIGGER ── */
+.article-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  display: block;
+}
+.article-trigger-inner {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  align-items: center;
+  background: var(--card);
+  transition: background 0.2s;
+}
+.article-trigger:hover .article-trigger-inner,
+.article-item.open .article-trigger-inner {
+  background: rgba(0,86,162,0.07);
+}
+
+/* Orange left bar when open */
+.article-item.open .article-trigger-inner { position: relative; }
+.article-item.open .article-trigger-inner::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--orange);
+}
+
+/* Date column */
+.art-date-col {
+  padding: 22px 0 22px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(0,86,162,0.12);
+}
+.art-date-day {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.9rem;
+  letter-spacing: 1px;
+  color: var(--orange);
+  line-height: 1;
+}
+.art-date-mon {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Summary column */
+.art-summary { padding: 20px 24px; }
+.art-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+/* Category badges */
+.art-category {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 2px 9px;
+  border-radius: 2px;
+}
+.art-category--competition  { background: rgba(244,121,32,0.12); border: 1px solid rgba(244,121,32,0.3);  color: var(--orange); }
+.art-category--engineering  { background: rgba(0,86,162,0.15);   border: 1px solid rgba(0,86,162,0.35);   color: #5aacff; }
+.art-category--team         { background: rgba(90,200,100,0.1);  border: 1px solid rgba(90,200,100,0.3);  color: #5ac864; }
+.art-category--announcement { background: rgba(255,215,0,0.08);  border: 1px solid rgba(255,215,0,0.25);  color: #ffd700; }
+
+.art-year {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: rgba(245,245,242,0.3);
+}
+.art-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 4px;
+  transition: color 0.2s;
+}
+.article-trigger:hover .art-headline,
+.article-item.open .art-headline { color: var(--orange); }
+
+.art-preview {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Chevron column */
+.art-chevron-col { padding: 20px 20px 20px 12px; }
+.art-chevron {
+  width: 28px; height: 28px;
+  border: 1px solid rgba(0,86,162,0.25);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+.art-chevron svg {
+  color: var(--muted);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), color 0.2s;
+}
+.article-trigger:hover .art-chevron {
+  border-color: rgba(244,121,32,0.35);
+  background: rgba(244,121,32,0.06);
+}
+.article-trigger:hover .art-chevron svg { color: var(--orange); }
+.article-item.open .art-chevron {
+  border-color: rgba(244,121,32,0.45);
+  background: rgba(244,121,32,0.1);
+}
+.article-item.open .art-chevron svg {
+  transform: rotate(180deg);
+  color: var(--orange);
+}
+
+
+/* ── ACCORDION BODY ── */
+.article-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.38s cubic-bezier(0.4,0,0.2,1);
+}
+.article-item.open .article-body { grid-template-rows: 1fr; }
+.article-body-inner { overflow: hidden; }
+.article-body-content {
+  padding: 28px 32px 32px;
+  border-top: 1px solid rgba(0,86,162,0.12);
+  background: rgba(2,12,21,0.5);
+}
+
+/* Optional photo */
+.article-photo {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, rgba(0,86,162,0.1), rgba(0,86,162,0.04));
+  border: 1px solid rgba(0,86,162,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.article-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.article-photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.article-photo-placeholder svg { opacity: 0.15; }
+.article-photo-placeholder span {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245,245,242,0.15);
+}
+
+/* Body text */
+.article-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.article-text p { margin-bottom: 14px; }
+.article-text p:last-child { margin-bottom: 0; }
+
+/* Byline */
+.article-byline {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0,86,162,0.1);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245,245,242,0.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.article-byline::before {
+  content: '';
+  display: block;
+  width: 12px; height: 1px;
+  background: var(--orange);
+  opacity: 0.4;
+}
